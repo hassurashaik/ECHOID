@@ -2,6 +2,8 @@
 
 data/speaker0/*
 data/speaker1/*
+models/*
+config/*
 venv/
 dataset/
 __pycache__/
@@ -14,6 +16,8 @@ __pycache__/
 !data/.gitkeep
 !data/speaker0/.gitkeep
 !data/speaker1/.gitkeep
+!models/.gitkeep
+!config/.gitkeep
 
 
 
@@ -22,6 +26,5 @@ __pycache__/
 
 sample.ipynb
 improvments.md
-requirements.txt
 sample.py
 *.pyc

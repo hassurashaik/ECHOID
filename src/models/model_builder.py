@@ -15,8 +15,8 @@ Notes
 - Logs important stages of model creation and compilation.
 - Reads configurations directly from `config.yaml` through `config_utils`.
 
-Author: Muhd Uwais
 Name: EchoID
+Author: Muhd Uwais
 Project: Deep Voice Speaker Recognition CNN
 Purpose: CNN Model Builder
 License: MIT
@@ -69,8 +69,8 @@ class ModelBuilder:
 
     Example
     -------
-    >>> from src.models.cnn.model_builder import CNNModelBuilder
-    >>> builder = CNNModelBuilder()
+    >>> from src.models.model_builder import ModelBuilder
+    >>> builder = ModelBuilder()
     >>> model = builder.build_model()
     >>> model.summary()
     """
@@ -83,7 +83,8 @@ class ModelBuilder:
             config = cfg.read_config()
             self.model_cfg = config["model"]
             self.version = config["version"]
-            logger.info(f"Initialized ModelBuilder (version={self.version}) successfully.")
+            logger.info(
+                f"Initialized ModelBuilder (version={self.version}) successfully.")
         except Exception as e:
             logger.error(f"Error initializing ModelBuilder: {e}")
             raise
@@ -124,17 +125,18 @@ class ModelBuilder:
             input_shape = tuple(self.model_cfg["input_shape"])
 
             logger.debug(f"Model Filters: {filters}")
-            logger.info(f"Input Shape: {input_shape}")
+            logger.debug(f"Input Shape: {input_shape}")
 
             # Validate list lengths
             if not (len(filters) == len(kernel_sizes) == len(max_pool_sizes)):
                 raise ValueError(
                     "Length mismatch among 'filters', 'kernel_sizes', and 'max_pool_sizes' lists."
                 )
-            
+
             # ------------------ Convolutional Blocks ------------------
             for i, (filter, kernel, pool) in enumerate(zip(filters, kernel_sizes, max_pool_sizes)):
-                logger.debug(f"Adding Conv2D layer {i+1}: filters={filter}, kernel_size={kernel}")
+                logger.debug(
+                    f"Adding Conv2D layer {i+1}: filters={filter}, kernel_size={kernel}")
 
                 if i == 0:
                     model.add(
@@ -170,7 +172,8 @@ class ModelBuilder:
                     model.add(Dropout(dropout_rates[i + len(filters)]))
 
             # ------------------ Output Layer ------------------
-            model.add(Dense(units=1, activation="sigmoid"))  # Binary classification
+            # Binary classification
+            model.add(Dense(units=1, activation="sigmoid"))
 
             # ------------------ Compile Model ------------------
             if self.model_cfg.get("optimizer").lower() == "adam":
@@ -178,11 +181,11 @@ class ModelBuilder:
             else:
                 raise ValueError(
                     f"Unsupported optimizer specified in the configuration: {self.model_cfg.get('optimizer')}"
-                )          
+                )
 
             metrics = self.model_cfg.get("metrics", ["accuracy"])
 
-            loss = self.model_cfg.get("loss", "binary_crossentropy")     
+            loss = self.model_cfg.get("loss", "binary_crossentropy")
 
             model.compile(
                 optimizer=optimizer,
@@ -197,7 +200,7 @@ class ModelBuilder:
 
         except KeyError as e:
             logger.error(f"Missing key in model configuration: {e}")
-            raise    
+            raise
         except ValueError as e:
             logger.error(f"Invalid configuration parameter: {e}")
             raise

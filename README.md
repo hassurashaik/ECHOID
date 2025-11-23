@@ -1,6 +1,6 @@
 # 🎙️ EchoID - Deep Voice Speaker Recognition System
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![Keras](https://img.shields.io/badge/keras-3.11.3-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -23,21 +23,21 @@
 
 ## 📑 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [How It Works](#how-it-works)
-- [Installation](#installation)
-- [Usage](#usage)
+- [About the Project](#-about-the-project)
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Installation](#-installation)
+- [Usage](#-usage)
   - [1. Data Preparation](#1-data-preparation)
   - [2. Audio Chunking](#2-audio-chunking)
   - [3. Training the Model](#3-training-the-model)
   - [4. Real-Time Inference](#4-real-time-inference)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [Future Roadmap](#future-roadmap)
-- [License](#license)
-- [Contact](#contact)
+- [Project Structure](#-project-structure)
+- [Configuration](#-configuration)
+- [Contributing](#-contributing)
+- [Future Roadmap](#-future-roadmap)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
@@ -153,8 +153,9 @@
 ## 📦 Installation
 
 ### Prerequisites
-- Python 3.8 or higher
+- Python 3.12
 - pip package manager
+- **FFmpeg** (Required for processing `.m4a`, `.mp3`, or other compressed audio formats)
 
 ### Install Dependencies
 
@@ -166,6 +167,13 @@ cd EchoID
 # Install required packages
 pip install -r requirements.txt
 ```
+
+### System-Level Dependencies (Important)
+
+> [!IMPORTANT]
+> **Windows Users:** If you are using `.m4a` or other compressed audio files, you **must install FFmpeg** and add it to your system PATH. Without it, `librosa` will raise an error when trying to load your audio files.
+> *   [Download FFmpeg for Windows](https://ffmpeg.org/download.html)
+> *   [Guide: How to install FFmpeg on Windows](https://phoenixnap.com/kb/ffmpeg-windows)
 
 Note for Linux/Mac users: If you encounter errors installing sounddevice, you may need 
 system-level dependencies:

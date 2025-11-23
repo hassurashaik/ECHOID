@@ -59,16 +59,16 @@ def main():
     # ------------------ Processing Speaker 0 ------------------
     # Process negative class samples
     chunker.run(
-        speaker_dir="data/speaker0",
-        output_dir="data/speaker0/chunks",
+        speaker_dir="data\\speaker0",
+        output_dir="data\\speaker0\\chunks",
         file_count=args.number0
     )
 
     # ------------------ Processing Speaker 1 ------------------
     # Process target class samples
     chunker.run(
-        speaker_dir="data/speaker1",
-        output_dir="data/speaker1/chunks",
+        speaker_dir="data\\speaker1",
+        output_dir="data\\speaker1\\chunks",
         file_count=args.number1
     )
 

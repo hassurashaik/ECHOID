@@ -72,7 +72,7 @@ def save_metrics(metrics: dict) -> None:
         version = config.get("version", "v1")
 
         # Resolve project root directories
-        PROJECT_ROOT = Path(__file__).resolve().parent.parent
+        PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
         save_dir_rel = config["paths"].get(
             "save_dir", f"models/cnn_model_{version}")
         save_dir = (PROJECT_ROOT / save_dir_rel).resolve()

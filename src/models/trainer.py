@@ -152,7 +152,7 @@ class Trainer:
         try:
             config = cfg.read_config()
             version = config.get("version", "v1")
-            PROJECT_ROOT = Path(__file__).resolve().parent[3]
+            PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
             save_dir_rel = config["paths"].get(
                 "save_dir", f"models/cnn_model_{version}")

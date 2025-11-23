@@ -1,8 +1,9 @@
 keras==3.11.3
+tensorflow==2.20.0
 librosa==0.11.0
-numpy==2.3.5
-ruamel.base==1.0.0
-scikit_learn==1.4.2
+numpy==2.3.3
+ruamel.base==0.18.16
+scikit_learn==1.7.2
 sounddevice==0.5.3
 soundfile==0.13.1
 vad==1.0.2

@@ -181,13 +181,14 @@ brew install portaudio ffmpeg
 ### Dependencies Overview
 ```
 keras==3.11.3          # Deep learning framework
+tensorflow==2.20.0     # Backend for Keras
 librosa==0.11.0        # Audio processing
-numpy==2.3.5           # Numerical computing
-scikit_learn==1.4.2    # Machine learning utilities
+numpy==2.3.3           # Numerical computing
+scikit_learn==1.7.2    # Machine learning utilities
 sounddevice==0.5.3     # Audio I/O
 soundfile==0.13.1      # Audio file I/O
 vad==1.0.2             # Voice activity detection
-ruamel.base==1.0.0     # YAML configuration
+ruamel.base==0.18.16   # YAML configuration
 ```
 
 ---

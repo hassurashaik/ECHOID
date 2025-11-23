@@ -158,7 +158,7 @@ class AudioChunker:
             logger.error(f"❌ File not found: {input_file}")
             raise
         except Exception as e:
-            logger.error(f"❌ Error processing {input_file: {str(e)}}")
+            logger.error(f"❌ Error processing {input_file}: {str(e)}", exc_info=True)
             raise
 
 # ---------------------------------------------------------

@@ -102,6 +102,8 @@ def evaluate_model(model, history, x_test, y_test) -> dict:
         save_metrics(metrics)
         logger.info("✅ Evaluation metrics saved successfully.")
 
+        return metrics
+
     except Exception as e:
         logger.error(
             f"Error occurred during model evaluation: {e}", exc_info=True)

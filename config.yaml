@@ -6,13 +6,13 @@
 #  License: MIT
 # ========================================================================
 
-version: v1
+version: v9
 
 # ---------------------Project Information--------------------
 
 project:
   name: EchoID
-  description: A CNN model for binary speaker recognition using mel-spectrogram
+  description: A CNN model for binary speaker recognition using mel-spectrogram 
     inputs.
   author: Muhd Uwais
 
@@ -41,7 +41,7 @@ model:
   # Model compilation parameters
   loss: binary_crossentropy
   optimizer: adam
-  metrics: ["accuracy", "recall", "precision"]
+  metrics: ["accuracy"]
 
 # -----------------Training Configuration---------------------
 
@@ -70,7 +70,7 @@ training:
 # -----------------Inference Configuration---------------------
 
 inference:
-  duration: 3 # need to be same of the chunk duration used in training
+   # need to be same of the chunk duration used in training
   sample_rate: 16000
   threshold: 0.7
 
@@ -78,4 +78,4 @@ inference:
 
 paths:
   # Directory to save trained models and weights
-  save_dir: models/cnn_model_v1/
+  save_dir: models/cnn_model_v9/

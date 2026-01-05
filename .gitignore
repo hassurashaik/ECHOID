@@ -28,3 +28,9 @@ sample.ipynb
 improvments.md
 sample.py
 *.pyc
+echoid_env/ 
+__pycache__/ 
+*.pyc 
+*.wav 
+*.flac 
+*.mp3 
